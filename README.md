@@ -1,0 +1,4 @@
+Bookmarks
+=========
+
+Python bookmarks organizer
