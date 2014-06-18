@@ -17,8 +17,8 @@ def getBookmarks(filename):
     cursor.execute('select * from moz_places')
     table_info = cursor.fetchall()
     for bookmark in table_info:
-      bm = bookmark[1]
-      bmlist.append(bm)
+        bm = bookmark[1]
+        bmlist.append(bm)
     db.close()
     return bmlist  
   
@@ -39,6 +39,6 @@ class BookmarksDb(object):
       Db = MySQLdb.connect(self.host, self.user, self.password, self.db)
       cursor2 = Db.cursor()
       for bookmark in bmz: 
-        cursor2.execute("INSERT INTO %s values('%s')"%(self.tablename,bookmark))
+          cursor2.execute("INSERT INTO %s values('%s')"%(self.tablename,bookmark))
       Db.commit()
       Db.close() 
