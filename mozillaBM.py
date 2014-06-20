@@ -26,12 +26,12 @@ def get_mozilla_bm(filename):
 class BookmarksDb(object):
     def __init__(self, host = None, user = None, password = None, 
                  db = None, filename = None, tablename = None):
-      self.host = host
-      self.user = user
-      self.password = password 
-      self.db = db
-      self.filename = filename
-      self.tablename = tablename
+        self.host = host
+        self.user = user
+        self.password = password 
+        self.db = db
+        self.filename = filename
+        self.tablename = tablename
 
 
     """retrieves all bookmarks already stored in mysql"""
@@ -60,11 +60,11 @@ class BookmarksDb(object):
 
 
 #sends bookmarks to MySQL database using Python MySQLdb api
-  def sendBMs(self, filename, tablename):
-      bmz = getBookmarks(self.filename)
-      Db = MySQLdb.connect(self.host, self.user, self.password, self.db)
-      cursor2 = Db.cursor()
-      for bookmark in bmz: 
-          cursor2.execute("INSERT INTO %s values('%s')"%(self.tablename,bookmark))
-      Db.commit()
-      Db.close() 
+    def sendBMs(self, filename, tablename):
+        bmz = getBookmarks(self.filename)
+        Db = MySQLdb.connect(self.host, self.user, self.password, self.db)
+        cursor2 = Db.cursor()
+        for bookmark in bmz: 
+            cursor2.execute("INSERT INTO %s values('%s')"%(self.tablename,bookmark))
+        Db.commit()
+        Db.close() 
