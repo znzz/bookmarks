@@ -66,3 +66,7 @@ def word_dict():
                 if bm == value:
                     print bookmark
                     print key
+                    
+
+if __name__ == '__main__':	
+  print word_dict()
