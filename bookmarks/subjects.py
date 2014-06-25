@@ -3,9 +3,8 @@ import MySQLdb
 import mozilla
 import string
 
-""" subjects.py matches and assigns subjects from subject_dict to bookmarks"""
 
-
+"""retrieves bookmarks from Firefox sqlite3 database"""
 def get_mozilla_bm(filename):
     bmlist = []
     db = sqlite3.connect(filename)
@@ -16,21 +15,21 @@ def get_mozilla_bm(filename):
         bm = bookmark[1]
         bmlist.append(bm)
     return bmlist
-        
-    
+
+
 def split_list(text):
     text = text.lower()
     text = text.rstrip('/')
     for punc in string.punctuation:
-      text = text.replace(punc, " ")
-      splittext = text.split(" ")
-    del(splittext[1:3])
+        text = text.replace(punc, " ")
+    splittext = text.split(" ")
+    del(splittext[1:3]) 
     return splittext
-
-
+  
+  
 def word_dict():
     bmz = get_mozilla_bm(filename)
-    subject_dict = {'backend': ['webservices', 'webservice', 'api', 'rest', 'server', 'backend', 'json', 'node-js'],
+    subject_dict = {'backend': ['webservices', 'webservice', 'api', 'rest', 'server', 'backend', 'json', 'node-js'], 
                   'startup': ['startup', 'acquired', 'funding'],
                   'ios': ['ios', 'iphones', 'ipad'],
                   'android': 'android',
@@ -44,7 +43,7 @@ def word_dict():
                   'jobs': ['job', 'indeed'],
                   'github': 'github',
                   'architecture': 'memory',
-                  'distributed systems': ['distributed', 'cluster'],
+                  'distributed systems': ['distributed', 'cluster'], 
                   'apache': 'mesos',
                   'data processing': ['hadoop', 'storm', 'backtype'],
                   'open source': ['opensource', 'open-source']}
@@ -62,11 +61,12 @@ def word_dict():
     for bookmark in bmz:
         bookmark_list = split_list(bookmark)
         for bm in bookmark_list:
-            for value in new_list:
-                if bm == value:
-                    print bookmark
+            for key in new_list:
+                if bm == key:
+                    print bookmark 
                     print key
-                    
+ 
+          
 
 if __name__ == '__main__':	
     print word_dict()
