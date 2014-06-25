@@ -69,4 +69,4 @@ def word_dict():
                     
 
 if __name__ == '__main__':	
-  print word_dict()
+    print word_dict()
